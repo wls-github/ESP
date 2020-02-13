@@ -9,11 +9,11 @@ GND---GND
 GPIO4(D2)---SDA
 GPIO5(D1)---SCL
 
-2.Set up the router
+## 2.Set up the router
 Set router account to set router account to
 Account number: doiting
 Password:doiting.com
-3. Burning program
+## 3. Burning program
 Open the ESP_TOOLS download tool and select 8266.
 Tool download: http://bbs.doit.am/forum.php?mod=viewthread&tid=196&highlight=TOO
 
@@ -201,7 +201,6 @@ bool skipResponseHeaders() {
   }
   return ok;
 }
-
 void readReponseContent(char* content, size_t maxSize) {
   size_t length = client.peekBytes(content, maxSize);
   delay(100);
@@ -211,27 +210,6 @@ void readReponseContent(char* content, size_t maxSize) {
   Serial.println("Read data Over!");
   client.flush();}
 
-/**
-* {
-*    "results": [
-*        {
-*            "location": {
-*                "id": "WX4FBXXFKE4F",
-*                "name": "北京",
-*                "country": "CN",
-*                "path": "北京,北京,中国",
-*                "timezone": "Asia/Shanghai",
-*                "timezone_offset": "+08:00"
-*            },
-*            "now": {
-*                "text": "多云",
-*                "code": "4",
-*                "temperature": "23"
-*            },
-*            "last_update": "2017-09-13T09:51:00+08:00"
-*        }
-*}
-*/
 bool parseUserData(char* content, struct UserData* userData) {
   DynamicJsonBuffer jsonBuffer;
 
@@ -271,6 +249,7 @@ void stopConnect() {
 void clrEsp8266ResponseBuffer(void){
     memset(response, 0, MAX_CONTENT_SIZE);     
 }
+## 
 Arduino Source:
 http://bbs.doit.am/forum.php?mod=attachment&aid=Njg4fGZjZWNhODcyfDE1ODEzMTY3Mjh8MHw0NDI%3D
 
